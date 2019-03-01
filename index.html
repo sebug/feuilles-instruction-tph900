@@ -14,6 +14,12 @@
       border: 1px solid black;
       }
 
+      svg.tph900-overview-back {
+      width: 640px;
+      height: 640px;
+      border: 1px solid black;
+      }
+
       .lbl {
       font-weight: bold;
       }
@@ -48,6 +54,7 @@
   </head>
   <body>
     <h1>Comment utiliser la radio TPH900</h1>
+    <h2>Devant</h2>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-65 -20 575 620" preserveAspectRatio="xMidYMid slice" class="tph900-overview">
       
       <image xlink:href="images/tph900_front.png" width="138" height="445" x="130" y="100" class="tph900-front" />
@@ -96,7 +103,7 @@
       <text class="lbl affichageenvoi" x="-60" y="270">Affichage envoi</text>
       <line x1="65" y1="265" x2="181" y2="267" class="label-line affichageenvoi" />
 
-      <rect x="181" y="267" width="4" height="8" class="affichageenvoi clignotant" />
+      <rect x="181" y="267" width="4" height="8" class="affichageenvoi" />
 
       <text class="lbl selecteurappelvolume" x="-60" y="100">Selecteur d'appel / Volume</text>
       <line x1="150" y1="95" x2="170" y2="250" class="label-line selecteurappelvolume" />
@@ -109,62 +116,12 @@
     </svg>
 
 
-
-    <script>
-      const tphOverview = document.getElementsByClassName('tph900-overview')[0];
-      const displayScreen = tphOverview.getElementsByClassName('screen-active')[0];
-
-      let isOn = false;
-      let isSpeaking = false;
-
-
-      const toggleDisplayScreen = () => {
-      const currentDisplay = displayScreen.getAttributeNS(null, 'display');
-      if (currentDisplay === 'none') {
-      displayScreen.setAttributeNS(null, 'display', 'block');
-      isOn = true;
-      } else {
-      displayScreen.setAttributeNS(null, 'display', 'none');
-      isOn = false;
-      isSpeaking = false;
-      }
-      };
-
+    <h2>Derrière</h2>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-65 -20 575 620" preserveAspectRatio="xMidYMid slice" class="tph900-overview-back">
       
+      <image xlink:href="images/tph900_back.png" width="151" height="495" x="130" y="20" class="tph900-back" />
+    </svg>
 
-      const powerbutton = tphOverview.getElementsByClassName('powerbutton')[0];
-      powerbutton.addEventListener('click',toggleDisplayScreen);
-
-      const affichageEnvoi = tphOverview.querySelector('rect.affichageenvoi');
-
-      const setSpeakingStyle = () => {
-      if (isSpeaking) {
-      affichageEnvoi.classList.remove('clignotant');
-      affichageEnvoi.classList.add('parlant');
-      } else {
-      affichageEnvoi.classList.remove('parlant');
-      affichageEnvoi.classList.add('clignotant');
-      }
-      };
-
-      const speakerButton = tphOverview.querySelector('rect.speakerbutton');
-
-      speakerButton.addEventListener('mousedown', () => {
-      if (!isOn) {
-        return;
-      }
-      isSpeaking = true;
-      setSpeakingStyle();
-      });
-      speakerButton.addEventListener('mouseup', () => {
-      if (!isOn) {
-      return;
-      }
-      isSpeaking = false;
-      setSpeakingStyle();
-      });
-      
-
-    </script>
+    <script src="index.js"></script>    
   </body>
 </html>
