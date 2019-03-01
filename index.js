@@ -83,3 +83,8 @@ document.querySelector('button.montrer-marche-arret').addEventListener('click', 
     powerbutton.classList.remove('montrer');
     powerbutton.classList.add('montrer');
 });
+
+document.querySelector('button.montrer-bouton-conversation').addEventListener('click', () => {
+    speakerButton.classList.remove('montrer');
+    speakerButton.classList.add('montrer');
+});
