@@ -47,7 +47,7 @@
       
       <image xlink:href="images/tph900_front.png" width="138" height="445" x="130" y="100" class="tph900-front" />
       <image xlink:href="images/tph900_top.png" width="127" height="85" x="280" y="10" class="tph900-top" />
-      <image xlink:href="images/screen_active.png" width="72" height="98" x="165" y="300" class="screen-active" />
+      <image xlink:href="images/screen_active.png" width="72" height="98" x="165" y="300" class="screen-active" display="none" />
 
       <text class="lbl antenne" x="320" y="150">Antenne</text>
       <line x1="320" y1="145" x2="250" y2="145" class="label-line antenne" />
@@ -96,6 +96,9 @@
       <text class="lbl selecteurappelvolume" x="-60" y="100">Selecteur d'appel / Volume</text>
       <line x1="150" y1="95" x2="170" y2="250" class="label-line selecteurappelvolume" />
       <line x1="150" y1="95" x2="315" y2="55" class="label-line selecteurappelvolume" />
+
+      <rect x="225" y="273" width="15" height="14" fill="red" class="powerbutton" fill-opacity="0" />
+      
     </svg>
 
 
@@ -103,7 +106,19 @@
     <script>
       const tphOverview = document.getElementsByClassName('tph900-overview')[0];
       const displayScreen = tphOverview.getElementsByClassName('screen-active')[0];
-      console.log(displayScreen);
+
+      const toggleDisplayScreen = () => {
+      const currentDisplay = displayScreen.getAttributeNS(null, 'display');
+      if (currentDisplay === 'none') {
+        displayScreen.setAttributeNS(null, 'display', 'block');
+      } else {
+        displayScreen.setAttributeNS(null, 'display', 'none');
+      }
+      };
+
+      const powerbutton = tphOverview.getElementsByClassName('powerbutton')[0];
+      powerbutton.addEventListener('click',toggleDisplayScreen);
+
     </script>
   </body>
 </html>
