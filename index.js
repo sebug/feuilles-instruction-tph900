@@ -38,20 +38,24 @@ const setSpeakingStyle = () => {
 
 const speakerButton = tphOverview.querySelector('rect.speakerbutton');
 
-speakerButton.addEventListener('mousedown', () => {
+const setIsSpeaking = () => {
     if (!isOn) {
         return;
     }
     isSpeaking = true;
     setSpeakingStyle();
-});
-speakerButton.addEventListener('mouseup', () => {
+};
+const setIsNoLongerSpeaking = () => {
     if (!isOn) {
-	return;
+        return;
     }
     isSpeaking = false;
     setSpeakingStyle();
-});
+};
+speakerButton.addEventListener('mousedown', setIsSpeaking);
+speakerButton.addEventListener('mouseup', setIsNoLongerSpeaking);
+speakerButton.addEventListener('touchstart', setIsSpeaking);
+speakerButton.addEventListener('touchend', setIsNoLongerSpeaking);
 
 const elementsFront = ['antenne', 'hautparleur', 'marchearret'];
 
