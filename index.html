@@ -9,7 +9,7 @@
       }
 
       svg.tph900-overview {
-      width: 500px;
+      width: 600px;
       height: 600px;
       border: 1px solid black;
       }
@@ -20,16 +20,45 @@
       .label-line {
       stroke: red;
       }
+      .label-circle {
+      stroke: red;
+      fill-opacity: 0;
+      }
     </style>
   </head>
   <body>
     <h1>Comment utiliser la radio TPH900</h1>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 500 600" preserveAspectRatio="xMidYMid slice" class="tph900-overview">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" class="tph900-overview">
       <image xlink:href="images/tph900_front.png" width="138" height="445" x="110" y="100" class="tph900-front" />
       <image xlink:href="images/tph900_top.png" width="127" height="85" x="300" y="10" class="tph900-top" />
 
       <text class="lbl antenne" x="300" y="150">Antenne</text>
-      <line x1="300" y1="145" x2="230" y2="145" class="label-line" />
+      <line x1="300" y1="145" x2="230" y2="145" class="label-line antenne" />
+
+      <text class="lbl hautparleur" x="300" y="200">Haut-parleur</text>
+      <line x1="300" y1="195" x2="182" y2="285" class="label-line hautparleur" />
+
+      <text class="lbl marchearret" x="300" y="285">Marche / Arrêt</text>
+      <line x1="300" y1="280" x2="217" y2="280" class="label-line marchearret" />
+
+      <text class="lbl ecran" x="300" y="350">Ecran / Display</text>
+      <line x1="300" y1="345" x2="190" y2="345" class="label-line ecran" />
+
+      <text class="lbl microphone" x="300" y="400">Microphone</text>
+      <line x1="300" y1="395" x2="168" y2="417" class="label-line microphone" />
+
+      <circle cx="180" cy="437" r="20" class="label-circle touchesnavigation" />
+      <text class="lbl touchesnavigation" x="300" y="432">Touches de navigation</text>
+      <line x1="300" y1="427" x2="200" y2="437" class="label-line touchesnavigation" />
+
+      <text class="lbl retouraumodeveille" x="300" y="470">Retour au mode veille</text>
+      <line x1="300" y1="465" x2="217" y2="450" class="label-line retouraumodeveille" />
+
+      <text class="lbl clavier" x="300" y="500">Clavier de touches</text>
+      <text class="lbl clavier-alphanumeriques" x="300" y="518">alphanumériques</text>
+      <line x1="300" y1="505" x2="180" y2="485" class="label-line clavier" />
+
+      <text class="lbl envoyerunappel" x="0" y="470">Envoyer un appel</text>
     </svg>
   </body>
 </html>
