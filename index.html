@@ -51,6 +51,16 @@
       75% { fill-opacity: 1; }
       100% { fill-opacity: 1; }
       }
+
+      .powerbutton.montrer {
+      fill: #5f5;
+        animation: montrer 5s linear;
+      }
+
+      @keyframes montrer {
+      0% { fill-opacity: 0.8; }
+      100% { fill-opacity: 0; }
+      }
     </style>
   </head>
   <body>
@@ -115,8 +125,15 @@
       <rect x="225" y="273" width="15" height="14" fill="red" class="powerbutton marchearret" fill-opacity="0" />
 
       <rect x="132" y="318" width="10" height="60" fill="red" class="speakerbutton" fill-opacity="0" />
+
+      <rect class="ecran" x="160" y="300" width="80" height="100" fill="green" fill-opacity="0" />
       
     </svg>
+
+    <h3>Mise en marche</h3>
+    <ol>
+      <li>Appuyer quelques secondes sur le bouton Marche / Arrêt <button class="montrer-marche-arret">Montrer</button></li>
+    </ol>
 
 
     <h2>Derrière</h2>

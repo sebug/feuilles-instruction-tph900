@@ -57,7 +57,7 @@ speakerButton.addEventListener('mouseup', setIsNoLongerSpeaking);
 speakerButton.addEventListener('touchstart', setIsSpeaking);
 speakerButton.addEventListener('touchend', setIsNoLongerSpeaking);
 
-const elementsFront = ['antenne', 'hautparleur', 'marchearret'];
+const elementsFront = ['antenne', 'hautparleur', 'marchearret', 'ecran'];
 
 for (let frontElementKey of elementsFront) {
     const elementRect = tphOverview.querySelector('rect.' + frontElementKey);
@@ -69,3 +69,17 @@ for (let frontElementKey of elementsFront) {
 	elementText.classList.remove('highlighted');
     });
 }
+
+const touchesCircle = tphOverview.querySelector('circle.touchesnavigation');
+const touchesText = tphOverview.querySelector('text.touchesnavigation');
+touchesCircle.addEventListener('mouseenter', () => {
+    touchesText.classList.add('highlighted');
+});
+touchesCircle.addEventListener('mouseleave', () => {
+    touchesText.classList.remove('highlighted');
+});
+
+document.querySelector('button.montrer-marche-arret').addEventListener('click', () => {
+    powerbutton.classList.remove('montrer');
+    powerbutton.classList.add('montrer');
+});
