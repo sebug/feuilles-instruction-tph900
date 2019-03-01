@@ -81,10 +81,16 @@ touchesCircle.addEventListener('mouseleave', () => {
 
 document.querySelector('button.montrer-marche-arret').addEventListener('click', () => {
     powerbutton.classList.remove('montrer');
-    powerbutton.classList.add('montrer');
+    setTimeout(() => {
+	powerbutton.classList.add('montrer');
+	powerbutton.style.animationPlayState = "running";
+    }, 0);
 });
 
 document.querySelector('button.montrer-bouton-conversation').addEventListener('click', () => {
     speakerButton.classList.remove('montrer');
-    speakerButton.classList.add('montrer');
+    setTimeout(() => {
+	speakerButton.classList.add('montrer');
+	speakerButton.style.animationPlayState = "running";
+    }, 0);
 });
