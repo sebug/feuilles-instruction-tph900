@@ -27,6 +27,18 @@
       stroke: red;
       fill-opacity: 0;
       }
+
+      rect.affichageenvoi {
+      fill: #5f5;
+      animation: clignotant 2s linear infinite;
+      }
+
+      @keyframes clignotant {
+      0% { fill-opacity: 0; }
+      50% { fill-opacity: 0; }
+      75% { fill-opacity: 1; }
+      100% { fill-opacity: 1; }
+      }
     </style>
   </head>
   <body>
@@ -77,6 +89,8 @@
 
       <text class="lbl affichageenvoi" x="-60" y="270">Affichage envoi</text>
       <line x1="65" y1="265" x2="181" y2="267" class="label-line affichageenvoi" />
+
+      <rect x="181" y="267" width="4" height="8" class="affichageenvoi" />
 
       <text class="lbl selecteurappelvolume" x="-60" y="100">Selecteur d'appel / Volume</text>
       <line x1="150" y1="95" x2="170" y2="250" class="label-line selecteurappelvolume" />
