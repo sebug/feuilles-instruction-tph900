@@ -23,9 +23,10 @@
       .lbl {
       font-weight: bold;
       }
-      .lbl:hover {
+      .lbl.highlighted {
       fill: blue;
       }
+      
       .label-line {
       stroke: red;
       }
@@ -63,9 +64,11 @@
 
       <text class="lbl antenne" x="320" y="150">Antenne</text>
       <line x1="320" y1="145" x2="250" y2="145" class="label-line antenne" />
+      <rect x="215" y="105" width="40" height="160" fill="green" fill-opacity="0" class="antenne" />
 
       <text class="lbl hautparleur" x="320" y="200">Haut-parleur</text>
       <line x1="320" y1="195" x2="202" y2="285" class="label-line hautparleur" />
+      <rect x="180" y="275" width="40" height="20" fill="green" fill-opacity="0" class="hautparleur" />
 
       <text class="lbl marchearret" x="320" y="285">Marche / Arrêt</text>
       <line x1="320" y1="280" x2="237" y2="280" class="label-line marchearret" />
@@ -109,7 +112,7 @@
       <line x1="150" y1="95" x2="170" y2="250" class="label-line selecteurappelvolume" />
       <line x1="150" y1="95" x2="315" y2="55" class="label-line selecteurappelvolume" />
 
-      <rect x="225" y="273" width="15" height="14" fill="red" class="powerbutton" fill-opacity="0" />
+      <rect x="225" y="273" width="15" height="14" fill="red" class="powerbutton marchearret" fill-opacity="0" />
 
       <rect x="132" y="318" width="10" height="60" fill="red" class="speakerbutton" fill-opacity="0" />
       

@@ -53,3 +53,15 @@ speakerButton.addEventListener('mouseup', () => {
     setSpeakingStyle();
 });
 
+const elementsFront = ['antenne', 'hautparleur', 'marchearret'];
+
+for (let frontElementKey of elementsFront) {
+    const elementRect = tphOverview.querySelector('rect.' + frontElementKey);
+    const elementText = tphOverview.querySelector('text.' + frontElementKey);
+    elementRect.addEventListener('mouseenter', () => {
+	elementText.classList.add('highlighted');
+    });
+    elementRect.addEventListener('mouseleave', () => {
+	elementText.classList.remove('highlighted');
+    });
+}
