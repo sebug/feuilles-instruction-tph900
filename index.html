@@ -28,8 +28,13 @@
       fill-opacity: 0;
       }
 
-      rect.affichageenvoi {
-      fill: #5f5;
+      rect.affichageenvoi.parlant {
+      fill: #f22;
+      fill-opacity: 1;
+      }
+
+      rect.affichageenvoi.clignotant {
+            fill: #5f5;
       animation: clignotant 2s linear infinite;
       }
 
@@ -91,13 +96,15 @@
       <text class="lbl affichageenvoi" x="-60" y="270">Affichage envoi</text>
       <line x1="65" y1="265" x2="181" y2="267" class="label-line affichageenvoi" />
 
-      <rect x="181" y="267" width="4" height="8" class="affichageenvoi" />
+      <rect x="181" y="267" width="4" height="8" class="affichageenvoi clignotant" />
 
       <text class="lbl selecteurappelvolume" x="-60" y="100">Selecteur d'appel / Volume</text>
       <line x1="150" y1="95" x2="170" y2="250" class="label-line selecteurappelvolume" />
       <line x1="150" y1="95" x2="315" y2="55" class="label-line selecteurappelvolume" />
 
       <rect x="225" y="273" width="15" height="14" fill="red" class="powerbutton" fill-opacity="0" />
+
+      <rect x="132" y="318" width="10" height="60" fill="red" class="speakerbutton" fill-opacity="0" />
       
     </svg>
 
@@ -107,17 +114,56 @@
       const tphOverview = document.getElementsByClassName('tph900-overview')[0];
       const displayScreen = tphOverview.getElementsByClassName('screen-active')[0];
 
+      let isOn = false;
+      let isSpeaking = false;
+
+
       const toggleDisplayScreen = () => {
       const currentDisplay = displayScreen.getAttributeNS(null, 'display');
       if (currentDisplay === 'none') {
-        displayScreen.setAttributeNS(null, 'display', 'block');
+      displayScreen.setAttributeNS(null, 'display', 'block');
+      isOn = true;
       } else {
-        displayScreen.setAttributeNS(null, 'display', 'none');
+      displayScreen.setAttributeNS(null, 'display', 'none');
+      isOn = false;
+      isSpeaking = false;
       }
       };
 
+      
+
       const powerbutton = tphOverview.getElementsByClassName('powerbutton')[0];
       powerbutton.addEventListener('click',toggleDisplayScreen);
+
+      const affichageEnvoi = tphOverview.querySelector('rect.affichageenvoi');
+
+      const setSpeakingStyle = () => {
+      if (isSpeaking) {
+      affichageEnvoi.classList.remove('clignotant');
+      affichageEnvoi.classList.add('parlant');
+      } else {
+      affichageEnvoi.classList.remove('parlant');
+      affichageEnvoi.classList.add('clignotant');
+      }
+      };
+
+      const speakerButton = tphOverview.querySelector('rect.speakerbutton');
+
+      speakerButton.addEventListener('mousedown', () => {
+      if (!isOn) {
+        return;
+      }
+      isSpeaking = true;
+      setSpeakingStyle();
+      });
+      speakerButton.addEventListener('mouseup', () => {
+      if (!isOn) {
+      return;
+      }
+      isSpeaking = false;
+      setSpeakingStyle();
+      });
+      
 
     </script>
   </body>
