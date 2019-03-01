@@ -57,7 +57,7 @@ speakerButton.addEventListener('mouseup', setIsNoLongerSpeaking);
 speakerButton.addEventListener('touchstart', setIsSpeaking);
 speakerButton.addEventListener('touchend', setIsNoLongerSpeaking);
 
-const elementsFront = ['antenne', 'hautparleur', 'marchearret', 'ecran'];
+const elementsFront = ['antenne', 'hautparleur', 'marchearret', 'ecran', 'microphone', 'retouraumodeveille', 'clavier', 'clavier-alphanumeriques'];
 
 for (let frontElementKey of elementsFront) {
     const elementRect = tphOverview.querySelector('rect.' + frontElementKey);
